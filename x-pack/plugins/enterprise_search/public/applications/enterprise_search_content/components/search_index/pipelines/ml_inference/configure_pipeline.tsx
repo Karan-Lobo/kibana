@@ -28,8 +28,8 @@ import { IndexViewLogic } from '../../index_view_logic';
 import { EMPTY_PIPELINE_CONFIGURATION, MLInferenceLogic } from './ml_inference_logic';
 // import { ModelSelect } from './model_select';
 import { ModelSelectLogic } from './model_select_logic';
-import { PipelineSelect } from './pipeline_select';
 import { ModelSelectTable } from './model_select_table';
+import { PipelineSelect } from './pipeline_select';
 
 const CREATE_NEW_TAB_NAME = i18n.translate(
   'xpack.enterpriseSearch.content.indices.pipelines.addInferencePipelineModal.steps.configure.tabs.createNew.name',

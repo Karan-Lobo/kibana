@@ -25,7 +25,10 @@ import {
 } from '@elastic/eui';
 
 import { MlModel, MlModelDeploymentState } from '../../../../../../../common/types/ml';
+import { KibanaLogic } from '../../../../../shared/kibana';
 import { IndexNameLogic } from '../../index_name_logic';
+
+import { TrainedModelHealth } from '../ml_model_health';
 
 import { MLInferenceLogic } from './ml_inference_logic';
 import { ModelSelectLogic } from './model_select_logic';
@@ -36,8 +39,6 @@ import {
   StartModelButton,
 } from './model_select_option';
 import { normalizeModelName, TRAINED_MODELS_PATH } from './utils';
-import { TrainedModelHealth } from '../ml_model_health';
-import { KibanaLogic } from '../../../../../shared/kibana';
 
 export const ModelSelectTable: React.FC = () => {
   const { indexName } = useValues(IndexNameLogic);
@@ -175,10 +176,8 @@ export const ModelSelectTable: React.FC = () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(3);
 
-  const onTableChange = (models: MlModel[], {
-    page = { index: 0, size: 3 },
-  }) => {
-    console.log('ontablechange', page, models)
+  const onTableChange = (models: MlModel[], { page = { index: 0, size: 3 } }) => {
+    console.log('ontablechange', page, models);
     const { index, size } = page;
     setPageIndex(index);
     setPageSize(size);
@@ -213,7 +212,7 @@ export const ModelSelectTable: React.FC = () => {
   };
 
   return (
-    <EuiPanel hasBorder={true}>
+    <EuiPanel hasBorder>
       <EuiInMemoryTable
         tableCaption="Demo of EuiBasicTable"
         columns={columns}
